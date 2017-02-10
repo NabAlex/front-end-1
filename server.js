@@ -9,4 +9,5 @@ const server = http.createServer(function(req, resp) {
   resp.end();
 });
 
-server.listen(3000);
+const PORT = process.env.PORT || 3000;
+server.listen(PORT);
