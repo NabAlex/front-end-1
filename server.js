@@ -1,13 +1,11 @@
 'use strict';
 
-const http = require("http");
-const fs = require("fs");
+var express = require('express');
+var app = express();
 
-const server = http.createServer(function(req, resp) {
-  const text = fs.readFileSync("templates/login.html", 'utf-8');
-  resp.write(text);
-  resp.end();
+app.use(express.static('templates'));
+app.use('/static', express.static('static'));
+
+app.listen(3000, function () {
+    console.log('Example app listening on port 3000!');
 });
-
-const PORT = process.env.PORT || 3000;
-server.listen(PORT);
